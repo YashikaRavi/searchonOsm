@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5E50A1</color>
+    <color name="colorPrimaryDark">#443a76</color>
+    <color name="colorAccent">#FFB003</color>
+    <color name="colorLate">#fcb41c</color>
+    <color name="RedAccent">#FFB003</color>
+    <color name="white">#ffffff</color>
+    <color name="cloud">#fafafa</color>
+    <color name="background">#f6f6f6</color>
+    <color name="blueLightAlpha">#46ebeaf3</color>
+    <color name="blueLight">#ebeaf3</color>
+    <color name="blueLighter">#f9f9fc</color>
+
+    <color name="whitesmoke">#F7F7F7</color>
+    <color name="cyanblue">#c4c7ca</color>
+    <color name="subDesc">#9b9b9b</color>
+    <color name="paleGreyFive">#f7f6fa</color>
+    <color name="purple">#5E50A1</color>
+    <color name="purpleDarker">#534695</color>
+    <color name="purpleDark">#1d0f61</color>
+    <color name="purpleBold">#3d2b7f</color>
+    <color name="gray">#dedede</color>
+    <color name="lightGray">#f9f9fb</color>
+    <color name="softRed">#fbf9f9</color>
+    <color name="wistful">#a69dd0</color>
+    <color name="wistfulLight">#B1AFD8</color>
+    <color name="magnolia">#edeaff</color>
+    <color name="pale_grey">#eeecf7</color>
+    <color name="darkGrey">#9d9d9e</color>
+    <color name="grey">#d2d5dd</color>
+    <color name="gold">#ffb200</color>
+
+    //for v2.5 update ---->top
+
+    <color name="dotGray_v2.5">#9f97c7</color>
+    <color name="bodyTextColor_v2.5">#4a4a4a</color>
+
+    //for v2.5 update ---->bottom
+
+    <color name="aluminium">#8D8E8F</color>
+    <color name="carcoalGrey">#424143</color>
+    <color name="tabOff">#e0e3ec</color>
+    <color name="eclipse">#393939</color>
+    <color name="black">#161617</color>
+    <color name="coolGrey">#929293</color>
+    <color name="manatee">#8d94a6</color>
+    <color name="divider">#e9e9e9</color>
+    <color name="divider_dark">#4a3b8f</color>
+    <color name="dividerSoft">#f8f8fa</color>
+
+    //for v2.6 update ---->top
+    <color name="tempBlue">#97bdff</color>
+    //for v2.6 update ---->bottom
+
+    //for v2.8 update
+    <color name="kashmirBlue">#4a6495</color>
+
+    <color name="softGray">#D8D8D8</color>
+
+    <color name="duskBlue">#2a4589</color>
+    <color name="tomato">#e24928</color>
+
+    <color name="active">@color/colorPrimary</color>
+    <color name="unactive">#d6d6d6</color>
+    <color name="higlightDark">#42ffffff</color>
+    <color name="higlightLight">#42000000</color>
+    <color name="lightPink">#fff1f2</color>
+    <color name="emperor">#545454</color>
+
+    <color name="tabActive">#575758</color>
+    <color name="tabInActive">#323235</color>
+    <color name="paleBlue">#f7f6fb</color>
+    <color name="paleGray">#efeef6</color>
+    <color name="paleGrayDarker">#dbd9ec</color>
+
+    <color name="whiteTransparent">#f2ffffff</color>
+    <color name="silver">#cccccd</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="hintText">#bcbcbc</color>
+    <color name="twilight">#5e50a1</color>
+    <color name="green">#56c378</color>
+    <color name="shamrock">#30cb9d</color>
+    <color name="greenTree">#29b473</color>
+    <color name="whiteLate">#fff7eb</color>
+
+    <color name="red">#EE4853</color>
+    <color name="lightRed">#ff434f</color>
+    <color name="whiteRed">#fff5f5</color>
+
+    <color name="facebook">#3b5998</color>
+    <color name="google">#e24928</color>
+
+    <color name="settingAppVersion">#808284</color>
+    <color name="greyish_brown">#4a4a4a</color>
+    <color name="colorRadiusBig">#0D5E50A1</color>
+    <color name="colorRadius">#1A5E50A1</color>
+    <color name="homeSelected">#f3f2f7</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+</resources>
