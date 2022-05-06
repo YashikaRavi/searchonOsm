@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     private val REQUEST_PERMISSIONS_REQUEST_CODE = 1
     private var map: MapView? = null
     var myLocationOverlay: MyLocationNewOverlay? = null
-    var anotherOverlayItemArray: ArrayList<OverlayItem>? = null
+
 
     private var places: ArrayList<MapDataformat> = arrayListOf()
     private var matchedPlaces: ArrayList<MapDataformat> = arrayListOf()
@@ -66,43 +66,33 @@ class MainActivity : AppCompatActivity(), LocationListener {
             )
         )
 
-
+        lifecycleScope.launchWhenCreated {
+            binding.progressBar.isVisible = true
+            val response = try {
+                Retrofit.API.getTodos()
+            } catch (e: IOException) {
+                Log.e(TAG, "NO INTERNET CONNECTION")
+                binding.progressBar.isVisible = false
+                return@launchWhenCreated
+            } catch (e: HttpException) {
+                Log.e(TAG, "unexpected response")
+                binding.progressBar.isVisible = false
+                return@launchWhenCreated
+            }
+            if (response.isSuccessful && response.body() != null) {
+                mapAdapter.map = response.body()!!
+                places = response.body()!!
+            } else {
+                Log.e(TAG, "Response not success")
+            }
+            binding.progressBar.isVisible = false
+        }
         setupRecyclerView()
         performSearch()
-
-
-        //        anotherOverlayItemArray = new ArrayList<OverlayItem>();
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "0, 0", "0, 0", new GeoPoint(0, 0)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Chennai", "Chennai", new GeoPoint(13.08268, 80.27072)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Coimbatore", "Coimbatore", new GeoPoint(11.004556, 76.961632)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Chengalpatu", "Chengalpatu", new GeoPoint(12.693933, 79.975662)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Salem", "Salem", new GeoPoint(11.664325, 78.146011)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Tamilnadu", "Tamilnadu", new GeoPoint(11.059821, 78.387451)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Kaniyakumari", "Kaniyakumari", new GeoPoint(8.088306, 77.538452)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Trichy", "Trichy", new GeoPoint(10.790483, 78.704674)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Tripura", "Tripura", new GeoPoint(9.939093, 78.121719)));
-//        anotherOverlayItemArray.add(new OverlayItem(
-//                "Nagapattinam", "Nagapattinam ", new GeoPoint(10.76561, 79.84239)));
-//
-//        ItemizedIconOverlay<OverlayItem> anotherItemizedIconOverlay
-//                = new ItemizedIconOverlay<OverlayItem>(
-//                this, anotherOverlayItemArray, null);
-//        map.getOverlays().add(anotherItemizedIconOverlay);
     }
 
-
-
     private fun setupRecyclerView()=binding.rvTodos.apply {
-        mapAdapter=MapAdapt(places).also {
+        mapAdapter = MapAdapt(places).also {
             binding.rvTodos.adapter = it
             binding.rvTodos.adapter!!.notifyDataSetChanged()
         }
@@ -126,9 +116,9 @@ class MainActivity : AppCompatActivity(), LocationListener {
         matchedPlaces = arrayListOf()
 
         text?.let {
-            places.forEach { place ->
-                if (place.Country.contains(text, true) || place.Street.contains(text, true) ) {
-                    matchedPlaces.add(place)
+            places.forEach { person ->
+                if (person.Street.contains(text, true) || person.Country.contains(text, true) ) {
+                    matchedPlaces.add(person)
                 }
             }
             updateRecyclerView()
@@ -144,7 +134,8 @@ class MainActivity : AppCompatActivity(), LocationListener {
             mapAdapter.notifyDataSetChanged()
         }
     }
-    fun addMarker(center: GeoPoint?) {
+
+fun addMarker(center: GeoPoint?) {
         val marker = Marker(map)
         marker.position = center
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
